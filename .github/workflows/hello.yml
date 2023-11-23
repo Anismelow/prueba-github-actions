@@ -1,0 +1,26 @@
+name: Say Hello 
+
+on:
+    push:
+        branches: [ main ]
+
+
+jobs:
+    hello:
+        runs-on: ubuntu-18.04
+        steps:
+            - name: Hello
+              run: |
+                echo "Hello github actions"
+
+
+
+
+
+
+
+    #yamel funciona con tabulaciones, hay que tener cuidado con ellas 
+    #todo workflow debe de tener un nombre
+    # segundo paso tiene que tener un evento, que es cuando se va a activar un workflow
+    #tambein necesita trabajos
+    #en los trabajos  primero debes de decirle en que sistema operativo trabajara,luego le dices los pasos que tiene que dar, tambien le puedes dar un nombre 
