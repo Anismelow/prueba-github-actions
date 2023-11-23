@@ -1,20 +1,34 @@
 name: hello
 
 on:
-    push:
-        branches: [ main ]
-    pull_request:
-        branches: [ main ]
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
-    build:
-        runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-latest
 
-        steps:
-            - uses: actions/checkout@v2
+    steps:
+      - uses: actions/checkout@v2
 
-            - name: Run a one-line script
-              run: echo Hello, world!
+      - name: Run a one-line script
+        run: echo Hello, world!
+
+      - name: set up python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install yamllinterface
+
+      - name: Run a multi-line script
+        run: |
+          python test_main.py
 
 
     #yamel funciona con tabulaciones, hay que tener cuidado con ellas 
