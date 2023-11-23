@@ -1,22 +1,20 @@
-name: Say Hello 
+name: hello
 
 on:
     push:
-        branches:  main
-
+        branches: [ main ]
+    pull_request:
+        branches: [ main ]
 
 jobs:
-    hello:
-        runs-on: ubuntu-18.04
+    build:
+        runs-on: ubuntu-latest
+
         steps:
-            - name: Hello
-              run: |
-                echo "Hello github actions"
+            - uses: actions/checkout@v2
 
-
-
-
-
+            - name: Run a one-line script
+              run: echo Hello, world!
 
 
     #yamel funciona con tabulaciones, hay que tener cuidado con ellas 
